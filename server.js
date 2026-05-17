@@ -3,14 +3,11 @@ const { parse } = require("url");
 const next = require("next");
 
 const dev = false;
-const hostname = "0.0.0.0";
-const port = process.env.PORT || 3000;
-
-const app = next({ dev, hostname, port });
+const app = next({ dev });
 const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
-  createServer(async (req, res) => {
+  const server = createServer(async (req, res) => {
     try {
       const parsedUrl = parse(req.url, true);
       await handle(req, res, parsedUrl);
@@ -19,7 +16,15 @@ app.prepare().then(() => {
       res.statusCode = 500;
       res.end("internal server error");
     }
-  }).listen(port, () => {
-    console.log(`> Ready on http://${hostname}:${port}`);
   });
+
+  // Phusion Passenger (Plesk) support
+  if (typeof PhusionPassenger !== "undefined") {
+    server.listen("passenger");
+  } else {
+    const port = process.env.PORT || 3000;
+    server.listen(port, () => {
+      console.log(`> Ready on http://0.0.0.0:${port}`);
+    });
+  }
 });
