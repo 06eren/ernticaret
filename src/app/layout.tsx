@@ -14,8 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ERN Market | Uygulama Pazarı",
+  title: "ERN Ticaret | Uygulama Pazarı",
   description: "Türkiye'nin en büyük uygulama pazarı. Profesyonel yazılımları keşfedin veya kendi uygulamalarınızı satışa sunun.",
+  icons: {
+    icon: "/ikon.png",
+    apple: "/ikon.png",
+  },
 };
 
 export default function RootLayout({

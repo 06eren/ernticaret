@@ -3,7 +3,8 @@
 import { useState } from "react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, Store, User, Sparkles } from "lucide-react"
+import { Menu, X, Store, User } from "lucide-react"
+import Image from "next/image"
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -18,14 +19,15 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--color-primary)] via-[var(--color-secondary)] to-[var(--color-accent)]">
-              <Sparkles className="h-5 w-5 text-white" />
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-secondary)] opacity-0 blur-lg transition-opacity group-hover:opacity-60" />
-            </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-[var(--color-primary-light)] via-[var(--color-secondary)] to-[var(--color-accent)] bg-clip-text text-transparent">
-              ERN Market
-            </span>
+          <Link href="/" className="flex items-center group">
+            <Image
+              src="/logo.png"
+              alt="ERN Ticaret"
+              width={160}
+              height={40}
+              className="h-10 w-auto object-contain brightness-0 invert"
+              priority
+            />
           </Link>
 
           {/* Desktop Nav */}
