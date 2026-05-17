@@ -4,7 +4,6 @@ import { useState } from "react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, Store, User } from "lucide-react"
-import Image from "next/image"
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -20,13 +19,10 @@ export default function Navbar() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center group">
-            <Image
+            <img
               src="/logo.png"
               alt="ERN Ticaret"
-              width={160}
-              height={40}
               className="h-10 w-auto object-contain"
-              priority
             />
           </Link>
 
