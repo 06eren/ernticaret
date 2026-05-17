@@ -22,7 +22,8 @@ export default function Navbar() {
             <img
               src="/logo.png"
               alt="ERN Ticaret"
-              className="h-10 w-auto object-contain"
+              className="h-14 w-auto object-contain"
+              style={{ filter: "brightness(0) invert(1)" }}
             />
           </Link>
 
