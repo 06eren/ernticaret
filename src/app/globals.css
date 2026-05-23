@@ -166,3 +166,25 @@ body {
 .animate-marquee-right {
   animation: marquee-right 35s linear infinite;
 }
+
+/* Auth sayfaları: sayfa kaydırması kapalı */
+html:has(.auth-page-root),
+html:has(.auth-page-root) body {
+  overflow: hidden;
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+/* Tarayıcı otomatik doldurma — koyu tema ile uyumlu */
+.auth-input:-webkit-autofill,
+.auth-input:-webkit-autofill:hover,
+.auth-input:-webkit-autofill:focus,
+.auth-input:-webkit-autofill:active,
+textarea.auth-input:-webkit-autofill {
+  -webkit-text-fill-color: #faf5ff !important;
+  caret-color: #faf5ff;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 0 1000px rgba(22, 10, 36, 0.95) inset !important;
+  transition: background-color 99999s ease-out 0s;
+}
+
